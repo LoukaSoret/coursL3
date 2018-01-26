@@ -1,0 +1,79 @@
+Composants:
+    1:
+        type: brique
+        resistance: 1
+    2:
+        type: brique
+        resistance: 2
+    3:
+        type: bonus
+        nature: Aleatoire
+    4:
+        type: bonus
+        nature: Laser
+    5:
+        type: brique
+        resistance: 0
+    6:
+        type: bonus
+        nature: Multiballes
+    7:
+        type: bonus
+        nature: Colle
+    8:
+        type: raquette
+Couches:
+    0: |
+        ....................................
+        .                                  .
+        .                                  .
+        .                3                 .
+        .                7                 .
+        .                3                 .
+        .                7                 .
+        .                3                 .
+        .                7                 .
+        .    6   4   6   3   6   4   6     .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+        .                                  .
+    1: |
+        ####################################
+        #                                  #
+        #                                  #
+        #    1 1 5 5 1 1 1 1 1 5 5 1 1     #
+        #  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   #
+        #  1 1 1 2 2 2 2 1 2 2 2 2 1 1 1   #
+        #  1 1 1 1     1 1 1     1 1 1 1   #
+        #  1 1 1       1 1 1       1 1 1   #
+        #    1 1 1 1 1 1 1 1 1 1 1 1 1     #
+        #    1   1   1   1   1   1   1     #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #                                  #
+        #              8                   #
+        #                                  #
