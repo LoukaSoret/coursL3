@@ -1,0 +1,23 @@
+==> tests/LesAchats <==
+1	Monbazillac	110
+2	Beaujolais Vauxrenard rosé nouveau ou Beaujolais Vauxrenard rosé primeur	17
+3	Chassagne-Montrachet premier cru La Grande Montagne rouge	69
+4	Côtes de la Charité blanc	56
+5	Givry premier cru Les Grandes Vignes blanc	123
+6	Alsace grand cru Altenberg de Bergheim Pinot gris	155
+7	Volnay premier cru Robardelle	147
+8	Saint-Aubin premier cru Village rouge	23
+9	Hautes-Alpes blanc	128
+10	Mâcon Milly-Lamartine blanc	16
+
+==> tests/LesVins <==
+Alsace blanc Auxerrois	10	2
+Alsace blanc Chasselas ou Alsace blanc Gutedel	10	2
+Alsace blanc Edelzwicker	12	2
+Alsace blanc Gewurztraminer	12	1
+Alsace blanc Muscat	13	2
+Alsace blanc Muscat Ottonel	11	1
+Alsace blanc Pinot blanc	12	1
+Alsace blanc Pinot Gris	11	2
+Alsace blanc Pinot ou Alsace blanc Klevner	13	2
+Alsace blanc Riesling	12	1

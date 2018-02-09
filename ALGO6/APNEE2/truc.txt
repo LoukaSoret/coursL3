@@ -1,0 +1,16 @@
+set title "Temps d'exécution des algos de jointure en fonction de la taille des données"
+
+set xlabel "taille"
+set ylabel "temps(ms)"
+
+set xrange [50:2000]
+set yrange [-2000:8000]
+set xtics 200
+set ytics 1000
+
+plot "res.out" using 1:2 title "naif" lw 2 lc rgb "black" with lines
+replot "res.out" using 3:4 title "hash" lw 2 lc rgb "blue" with lines
+
+set terminal png size 800,600
+set output "truc.png"
+replot
