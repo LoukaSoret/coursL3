@@ -1,0 +1,385 @@
+Mesure expérimentale d'une fonction de coût par instrumentation d'un programme.
+Introduction.
+Dans cette APNEE on a dû ajouter une fonction, f qui calcule le nombre de comparaison entre deux éléments d'un tableau, effectué par le programme de tri par insertion. Ensuite, on a modifié le programme pour qu'il puisse chercher le coût moyen de f. De ce fait on a du tracer une courbe de coût en utilisant gnuplot. Finalement, on a dû completer une fonction de tri rapide et en en utilisant refait l'expérience.
+Exercice 1.
+- On a ajouté une variable f qui correspond au coût du tri par insertion. - Puis, on a mis un condition pour vérifier si l'indice j > 0.
+- Si oui, on incrémente f.
+Exercice 2.
+- On a déplacé la demande de N dans la fonction main pour qu'on ait une taille de tableau fixe. - Ensuite, on a créé une demande de X qui sera le nombre d'exécution du tri.
+Exercice 3.
+Exercice 4.
+- On a complété la fonction du tri rapide en utilisant le TD comme référence.
+Conclusion
+- On constate que le tri par insertion est plus efficace avec un nombre de N petit. - Par contre, le tri rapide fonctionne mieux avec un nombre grand de N.
+
+Compte-rendu APNEE Algo.
+
+L'objectif de ce TP est de déterminer de manière expérimentale le coût de deux algorithmes de tri : le tri par insertion et le tri rapide. On va donc, dans un premier temps, s'intéresser au tri par insertion. On commencera par choisir les différentes tailles de tableaux à utiliser pour les tests, ainsi que le nombre de tableaux différents de chaque taille que l'on utilisera pour calculer le coût moyen de l'algorithme de tri par insertion fourni. Une fois cette étape terminée, nous allons, dans un deuxième temps, aborder le tri rapide, en implémentant l'algorithme puis en répétant la même méthode.
+Exercice 2.
+Les X différentes mesures de f pour une même valeur de N varient assez peu :
+
+
+Valeur du germe pour la fonction de tirage aléatoire 2 Valeur de N  1000.
+Valeur de X = 6.
+
+Augmenter N entraîne une augmentation non négligeable du temps d'exécution : par exemple, pour X=6, avec N=1000 l'exécution est instantanée, mais pour un N plus grand, comme par exemple 25 000, l'exécution n'est pas instantanée mais le temps d'exécution reste faible (~5 secondes). Enfin, si on augmente encore N (50 000), le temps d'exécution commence à être long, environ 20 secondes.
+Augmenter X, en revanche, ne change pas ou très peu le temps d'exécution lorsque N est petit. Si N est grand, l'augmentation de X augmente assez nettement le temps d'exécution.
+Nous avons donc choisi d'utiliser comme valeurs de N : 100, 1000, 5000 et 25000, de façon à avoir des valeurs d'échelles différentes, mais sans prendre de valeurs trop grandes pour éviter les erreurs de calcul dues aux valeurs trop élevées.
+Nous avons pris X=6 car prendre un X trop grand serait handicapant pour des valeurs de N élevées, mais il faut tout de même avoir un nombre minimum de f différents pour que fmoy s'approche de sa valeur théorique.
+Exercice 3.
+On obtient une courbe qui augmente de plus en plus vite, ce qui semble logique et conforme à la théorie.
+Exercice 4.
+On choisit de reprendre les mêmes valeurs pour N et X que pour le tri par sélection, de façon à pouvoir les comparer plus facilement.
+On obtient une courbe qui augmente de plus en plus vite, ce qui semble logique et conforme à la théorie.
+On constate en revanche que, même si elles ont une forme très semblable, les courbes des deux tris ne sont pas du tout à la même échelle.
+Pour conclure, on constate que le tri rapide est beaucoup plus efficace que le tri par insertion, et ce quel que soit N.
+Filière L3 Informatique, UE DGINF351 (ALGO5), APNEEs
+
+Vendredi 26 septembre : Mesure expérimentale d'une fonction de coût par instrumentation d'un programme
+
+
+Introduction :
+	
+Nous avons completer le fichier tris.c :
+	-Fonction tri_rapide ainsi que des fonctions dont elle avait besoin( échanger() et partition() )
+Afin de garder la fonction tri_rapide de base ( un tableau et une longueur ) nous avons cree une fonction tri_rapide_bis utilisant les paramètres suivant : un tableau et deux entier : debut et fin de tableau.
+	-ajout de compteur pour les deux tris .
+	-modification de la fonction lancer_mesures() afin de pouvoir tester les tris et récupérer les valeur dans un fichier pour gnuplot.
+	-creation des courbes avec gnuplot.
+		
+
+Interprétation des courbes :
+	On voit que la courbe du tri_rapide effectué beaucoup moins de comparaison que le tri_par_insertion, qui augmente asses vite.
+ Entre N de 0 à 200 : les différences sont légères.
+
+
+Conclusion :
+	Pour de très grande valeur de N , le tri rapide est beaucoup plus efficace en terme de comparaisons et donc de temps d'execution.
+
+Mesure expérimentale d'une fonction de coût par instrumentation d'un programme
+Au cours de ce TP, j'ai effectué plusieurs mesures de la valeur de fmoy en fonction de différentes valeurs de X et de N pour le tri par insertion et le tri rapide. Cela m'a permis de comparé le nombre moyen de comparaisons pour des mêmes valeurs de X et de N et un algorithme de tri différent.
+Tri par insertion.
+Exercice 2.
+Les valeurs de N et de x choisies sont les suivantes : 
+Un nombre d'exécutions supérieur à 30 permet d'avoir des résultats représentatifs des différents cas possibles.. Pour 50000, qui est la valeur maximum de N, le nombre d'exécution est beaucoup plus faible car le temps d'exécution pour chacune est élevé.
+Exercice 3.
+
+Plus le nombre N est important, plus le nombre moyen de comparaisons augmente. Cela correspond au résultat théorique attendu.
+Tri rapide.
+Pour des mêmes valeurs de X et de N, le nombre moyen de comparaisons pour le tri rapide est beaucoup plus faible par rapport au nombre moyen de comparaisons obtenu avec le tri par insertion.
+Introduction.
+Nous avons étudié les variations d'une fonction de coût de manière expérimentale par instrumentation d'un programme sur différents algorithme de tri de tableaux.
+Nous avons dans un premier temps étudié l'algorithme de tri par insertion pour ensuite travailler sur l'algorithme de tri rapide.
+Pour cela, nous avons suivis le protocole suivant :
+-Cerner les tailles des tableaux d'entrées afin que notre étude de cas soit pertinente :
+-Evaluation approximative du temps d'exécution en fonction de la taille du tableau, afin de se limité à des cas étudiable à l'échelle des ressources disponibles et du temps imparti. -Evaluation succincte du nombre de comparaisons pour nous limiter à des cas n'entrainant pas de débordement de notre compteur de cout.
+-Evaluation des intervalles d'entrées significatifs à étudier : Pour des entrées de petite taille,
+de grande taille, et l'évolution de l'un à l'autre.
+-Réalisation de mesures complètes pour des jeux d'entrées pertinents (défini précédemment) : Automatisation des exécutions et des valeurs de leurs entrees afin d'en effectuer un nombre suffisamment signification pour les étudier.
+-Récolte des données dans un fichier, mise en forme graphique (tracé de courbes). -Interprétation des résultats ainsi obtenu.
+Travail effectué :
+L’ensemble des questions du sujet ont été traitées.
+ALGO5 – Apnee 1.
+Valeurs utilisées :
+Durant nos tests, nous avons pris 1000 pour N et 100 pour X. Ces valeurs sont dans l’ordre du raisonnable pour effectuer des tests sur les moyennes.
+Commentaires :
+Une moyenne sur 100 ou 1000 valeurs ne change pas grand-chose au résultat final, d’où le choix de X = 100 pour avoir un temps d’exécution rapide.
+Avec N et X au maximum possible, les calculs prennent moins d’une seconde.
+L’utilisation des mêmes valeurs dans le cas de l’algorithme de tri rapide semble être raisonnable du point de vue du temps d’exécution. De plus, les résultats sont suffisamment pertinents pour être correctement traités et interprétés.
+Diagrammes des moyennes :
+Tri par insertion.
+Moyenne des comparaisons.
+Tri rapide.
+Les diagrammes ont été faits avec Open Office plutôt qu’avec Plot, car nous n’avons pas réussi à l’utiliser correctement.
+Dans cet APNEE nous avons étudié et comparé le cout de deux algorithmes différents, le tri par insertion et le tri rapide. Dans un premier temps nous avons complété l'algorithme tri rapide afin de pouvoir étudier son cout, puis nous avons écrit l'algorithme de tri rapide et essayé d'étudier son cout.
+Tri par insertion :
+Nous avons rajouté une variable f dans le code de la fonction tri_insertion initialisée à 0. on incrémente f à chaque execution de la boucle while pour compter chaque comparaisons effectuées ainsi qu'à la sortie de la boucle pour compter la dernière comparaison.
+Afin de pouvoir faire la moyenne du cout f j'ai rajouté le pointeur *f en argument de la procedure tri_insertion.
+Nous pouvons remarquer sur ce graphique que le nombre de comparaison augmente d'une manière significative à partir d'environ 15000. cet algorithme devient donc rapidement trop cher. Le temps d'execution des derniers tests prenait aussi plusieurs secondes (l'échelle n'étant pas régulière la courbe ne représente pas une augmentation du cout a partir d'un certain point).
+La complexité
+Tri rapide :
+Notre algorithme de tri rapide suit un schema récursif en utilisant la fonction partition.
+dans la fonction lancer_mesures nous effectuons un test pour verifier que l'algorithme fonctionne. Si la sortie est 0, l'algorithme fonctionne.
+Nous allons nous intéresser au coût moyen de deux algorithmes de tri : le tri par insertion, et le tri rapide. Pour cela, nous utiliserons une fonction de coût, connue, qui à partir d’un tableau d’une taille donnée, nous indique le nombre de comparaisons effectuées entre deux valeurs du tableau. L’objectif est de vérifier de manière expérimentale, les valeurs prises par cette fonction, en utilisant une implémentation de ces algorithmes, en langage C.
+Nous nous intéressons au nombre de comparaisons effectuées lors de l’exécution du tri par insertion et du tri rapide. Nous allons nous intéresser à deux paramètres : la taille des données, et le nombre de tests réalisés sur ces don- nées. Nous exprimerons la taille des données testées par N, et le nombre de tests effectués par X.
+Après plusieurs tests sur des tableaux de tailles différentes, nous pouvons en dégager des intervalles concernant N et X. Nous nous apercevons que le temps d’exécution ralenti en fonction de N. En effet, pour de petites valeurs de N, le programme est très rapide. Cependant, dès que nous prenons N=1000, le programme ralenti de manière significative. Nous nous contenterons donc , par la suite, à des valeurs de N comprise dans l’intervalle [1 ; 1000].
+Concernant la valeur de X, nous nous apercevons que nous sommes aussi limité. Ce n’est pas un problème de temps, mais un problème de mémoire. En effet, lorsque nous prenons une valeur de X assez grande, nous remarquons que le calcul de la moyenne devient erroné. Il faut alors limiter le nombre de test à une valeur permettant de ne pas atteindre un calcul dont le résultat n’est pas représentable en mémoire. Après plusieurs tests, nous choisissons de limiter X à l’intervalle suivant : [1 ; 1000]. Au delà, nous obtenons des incohérences dues à la mémoire pour les résultats su la valeur N=1000.
+ATTENTION : Ces valeurs sont celles qui conviennent pour le tri par insertion. Elles ne conviennent peut être pas pour les tests du tri rapide. Si ces valeurs ne sont pas adéquates pour le tri rapide, nous le saurons au moment du test. Si elle ne le sont pas, nous pourrons en déduire que le tri rapide est moins performant que le tri par insertion. Il nous est donc inutile de vérifier que ces valeurs conviennent au tri rapide. Nous aurions pu chercher des valeurs pour N et X qui correspondaient au tri rapide au lieu du tri par insertion. Ce choix est purement arbitraire.
+Nous remarquons une relation entre la taille des données et le nombre moyen de comparaisons. En effet, nous avons une relation de la forme : Fmoy ≈N2/2 Cette observation nous permet de déduire que, le temps d’exécution est de l’ordre de N2. Cette observation n’est pas contradictoire avec la théorie.
+Résultat et conclusion sur le tri rapide.
+Nous remarquons aussi une relation entre la taille des données et le nombre moyen de comparaisons.En effet, d’après le graphique obtenu, on peut dire que :
+Fmoy ≈N.
+Nous pouvons donc en déduire, qu’en moyenne, le temps d’exécution est de l’ordre de N. Cette observation n’est pas contradictoire avec la théorie.
+Conclusion.
+Nous avons comparé deux algorithmes de tri. Nous voyons sur le graphique en annexe que la courbe représentant le tri par insertion est très nettement au dessus de la courbe représentant le tri rapide. Nous pouvons donc en déduire que dans la majorité des cas, il est plus judicieux d’utiliser un tri rapide plutôt qu’un tri par insertion.
+La première partie de l 'APNEE concerne le tri par insertion. Il est question d'en étudier le coup en instaurant dans l'algorithme, une variable qui va compter le nombre de comparaison effectuées par le programme.
+On va ensuite développer ce système et observer le nombre de comparaison effectuées en fonction du nombre d'entrée du tableau. On obtient des résultats assez fins en lançant l'algorithme un bon nombre de fois. Pour tirer parti de ces résultats, nous allons ensuite récupérer ces résultats pour en extraire une courbe représentant le nombre de comparaisons en fonction du nombre d'entré du tableau, ce qui va nous permettre d'analyser et de commenter facilement notre expérience.
+La deuxième partie de l'APNEE reprend le principe de la première partie mais on l'applique cette fois à l'algorithme de tri rapide. Nous n'avons pa eu le temps de mener à bien ces expérimentations.
+
+En faisant varier N (la taille du tableau) le nombre d'élément à tester va augmenter donc la moyenne des différentes exécutions également.
+En faisant varier X (le nombre d'exécution) on va augmenté le nombre de paramètres dans la moyenne et donc l'affiner.
+
+On remarque qu'en augmentant le nombre d'entrés du tableau avec un pas de 500, le nombre moyen de comparaisons augmente de plus en plus.
+Ce résultat est cohérent avec le résultat attendu car le coût du tri par insertion vaut O(n2).
+
+Etant donné que nous n'avons pas fait toutes les expériences requise par le sujet, il nous est difficile de conclure autre chose que ce que nous avons écris dans l'exercice trois.
+On peux supposer que cette conclusion aurait porté sur la différence de coup entre les deux algorithmes. De plus, d'après le cours, l'algorithme du tri rapide à une complexité O(nlog(n)) en moyenne et quadratique au pire des cas.
+
+Le but de cette apnée est de comparer le coût entre deux algorithmes de tri (ici, tri par insertion et tri rapide).
+
+Pour le for, on incrémente f de 1 à chaque itération de la boucle, et une dernière fois à la sortie de la boucle (le for effectue une comparaison pour savoir que la condition est fausse et ainsi sortir de la boucle).
+Pour le while, il y a deux comparaisons, donc on incrémente f de 2 à chaque itération. La sortie du while est différente, il peut y avoir une ou deux comparaison. Il y en a une si la 1ère condition est fausse, et il y en a 2 sinon. (Ceci est dû au fait que l'opérateur séparant les deux conditions est un AND).
+
+On observe que le tri par insertion est plus performant que le tri rapide. On en tire deux conclusions possibles :
+- le nom du tri rapide est très mal choisi
+- les étudiants ont mal implémenté le tri rapide
+
+Suite à l'execution de notre programme sur 10 valeurs différentes de N comprises
+entre 100 et 100000, et x = 200, on constate que les valeurs de fmoy ne varient pas significativement.
+
+Les courbes obtenues montrent la différence entre une procédure de cout quadratique en moyenne et une fonction de cout logarithmique en moyenne (nlog(n)).
+Bien que les deux courbes soit plutôt éloigné du modèle théorique (O(n^2 /4) et O (nlog(n))) elles nous permettent d'observer la différence de cout pour des test de tailles comparables.
+
+Lors de ce TP, nous avons effectué différents tests sur une fonction de tri par insertion d'un tableau afin de déterminer le nombre de comparaisons effectué par celui-ci en fonction de la taille du tableau trié. Ainsi, nous avons pu jauger expérimentalement le coût algorithmique de cette méthode de tri.
+Nous avons ensuite créé une fonction reprenant la méthode de tri rapide et effectué les même tests avec celle-ci. Nous avons ensuite comparé les résultats obtenus afin de déterminer laquelle des deux méthode de tri était la moins coûteuse, et donc la plus efficace.
+
+
+La valeur de fmoy grandit beaucoup moins rapidement que lors du tri par insertion lorsque N
+augmente, même si cette valeur est parfois plus élevée pour des petites valeurs de N.
+Le temps d'execution est assez rapide même avec de grands nombres, et ne prend que quelques secondes lorsque N=100000. Lorsque X=100, le temps d'execution reste acceptable même pour N=100000.
+
+Le nombre moyen de comparaisons effectué augmente de manière linéaire à mesure que le nombre d'éléments à trier augmente, ce qui signifie que l'algorithme de tri augmente de coût beaucoup plus lentement que le tri par insertion, et garde un coût raisonnable même pour des valeurs de N élevée. Cela correspond globalement aux valeurs attendues pour fmoy.
+
+Au terme de ce TP, il apparaît que la méthode de tri rapide est beaucoup moins coûteuse et donc bien plus efficace que la méthode de tri par insertion. Tandis que le nombre d'opérations nécessaires pour la première augmente de manière linéaire, permettant donc de trier rapidement un tableau de grande taille, la seconde nécessite rapidement un nombre d'opérations élevé, l'empêchant de fonctionner rapidement sur un tableau de grande taille, voir saturant la mémoire disponible.
+Nous avons ainsi pu comprendre l'intérêt de l'optimisation d'un algorithme, ainsi que la nécessité d'en tester le coût, afin de créer des programmes fonctionnant de manière optimale.
+
+Nous avons commencé par instrumenté la fonction de tri par insertion de manière à connaître et afficher le nombre de comparaisons effectuées. Une fois le nombre de comparaisons connues, nous avons pu, au moyen d’une boucle, estimer une moyenne sur X tris par insertion.
+Les résultats obtenus nous ont permit de déterminer quelques valeurs de x et N pertinentes pour nos tests suivants. L’étape suivante a consisté à reporter les valeurs obtenues avec les paramètres précédents dans un graphique pour nous donner une allure approximative du comportement de la fonction.
+
+Pour le tri par insertion, les calculs théoriques sont majorés par n2. Au vu des résultats, nous sommes proches d'une courbe d'une courbe de n2, ce qui valide notre hypothèse.
+Toutes les opérations effectuées sur le tri par insertion pourrait ensuite être testées sur le tri rapide avec plus de temps pour comparer les performances de ces deux méthodes de tri.
+D’après les résultats de nos différentes expériences et par des hypothèses théoriques, nous pouvons en déduire que les deux algorithmes de tri sont plus ou moins performant selon la taille du tableau a trier. On remarque en effet que le tri par insertion demeure beaucoup moins performant sur des grandes séquences que le tri rapide mais qu’il devient plus intéressant pour de petites séquences.
+
+Dans cette apnée, l'implémentation de l'algorithme de Karp-Rabin permet de chercher un motif dans un texte de façon plus efficace. En plus,
+Exercice 2
+Le coût au pire de l'algorithme est : (n-m+1)*m. Il correspond à des textes qui ont beaucoup de sous-chaine qui contiennent partiellement des motifs.
+On voit que le temps augmente exponentiellement avec la taille de chaine.
+
+Le graphe ci-dessus conclure que l'algorithme Karp Rabin diminue beaucoup le temps d'execution. Celle-ci est causé par le temps sauvé dans le calcul de hashcode et de comparaison entre chaque lettre.
+
+Nous avons comparé l'efficacité de deux algorithmes de recherche de motifs dans un texte :
+- Un algorithme naïf qui compare tous les caractères du motif,
+- L'algorithme de Karp-Rabin qui utilise des tables de hachage.
+
+Le pire des cas correspond à un texte dans lequel on trouve le motif à chaque caractère. Dans ce cas, le coût en nombre de comparaisons est de l'ordre de : (n – m +1) * m Avec n la taille du texte et m la taille du motif.
+
+ Évaluation des performances de l'algorithme de Karp-Rabin.
+
+L'algorithme de Karp-Rabin nous permet de faire des test sur des données beaucoup plus grandes dans des temps raisonnables contrairement à l'algorithme de base.
+
+Dans le cadre de ce TP, nous avons étudié un premier algorithme (naïf) de recherche de motif. Nous nous sommes rendus compte des problèmes de performance posés par l'utilisation d'un tel algorithme, et nous sommes donc ensuite penchés sur l'algorithme de Karp-Rabin, que nous avons implémenté puis testé. Le graphe ci-dessous résume les tests effectués pour comparer l'efficacité de ces deux algorithmes et déterminer quel est le meilleur.
+
+
+Le pire cas correspond au cas où le motif est présent à la toute fin de la chaîne, (ou n'est pas présent dans la chaîne), mais que à tout moment, on a les m-1 premiers caractères du motif (m = longueur du motif).
+
+A chaque fois qu'on avance sur la chaîne, on va devoir parcourir les m-1 caractères suivants pour s'apercevoir que le dernier caractère n'est pas le même que celui du motif.
+
+On comprend bien que dans l'hypothèse d'une recherche dans un « vrai » texte, le temps de la recherche serait beaucoup trop long.
+
+On constate très clairement que le temps d'exécution de l'algorithme naïf augmente de façon exponentielle, alors que celui de l'algorithme de Karp-Rabin conserve un temps d'exécution linéaire de l'ordre d'1/100e de seconde, même pour des chaînes très longues
+
+Sur ce graphique, nous voyons très nettement la différence entre les algo naif et de KR.
+Même sur la totalité des fichiers tests fournis, l'algo de KR ne dépense pas et ne met pas plus de 0,1 secondes pour les exécuter.
+Tandis que pour le naïf, rien que pour wc50000, l'algo met presque 2 secondes pour se terminer.
+
+Nous avons été trop juste niveau temps pour pouvoir le commencer en espérant le terminer.
+
+Analyse de la complexité de la fonction Recherche :
+- la boucle 1 fais (n – m) opération n étant la taille du texte et m celle du motif - la boucle 2 fait entre 2 opération (comparaison) et 2m opération.
+la complexité est donc en O(nm-m2)=>O(nm)(nm étant le majorant de l'équation).
+pire des cas = la chaîne contient le motif répéter mais avec une lettre qui change.
+
+En conclusion ce graphique montre bien la différence de complexité entre l'algorithme naïf et ce lui de Karp-Rabbin.
+Karp-Rabbin ayant une complexité en O(n-m).
+
+Nous avons pu réaliser l'algorithme, avec une fonction de hachage basique (addition des valeurs numériques de chaque caractère, modulo 1024). En revanche, nous n'avons pas réussi à utiliser Gnuplot, voici donc le tableau récapitulatif des résultats (en secondes) :
+
+Le coût est C = (n-m+1)*m dans le pire des cas.
+Nous avons obtenu un temps de 0.191312213 seconde pour un fichier de test de 4608 caractères au pire, contre 0.001969602 seconde au mieux.
+Pour 59904 caractères, nous avons obtenu 4.718017373 au pire et 0.015658846 au mieux.
+
+On peut dire que l'algorithme naïf augmente le temps de calcul de manière exponentielle par rapport à l'algorithme de Karp-Rabin, qui augmente de façon linéaire.
+
+
+Le but du TP est de comparer le temps d'exécution de deux algorithmes de recherche de motif, un naïf et l'algorithme de Karp Rabin. Ce dernier utilise la notion de hachage introduite en cour /TD cette semaine. Il avait été présenté comme un outil puissant dans la recherche de motif, dans ce TP il est donc demandé de vérifier cette propriété.
+Pour cela, après avoir choisi et codé une fonction de hachage , j'ai implémenté l'algorithme de Karp Rabin, avec des petites difficultés sur la gestion des indices, puis finalement j'ai effectué les tests pour pouvoir enrichir mon argumentation.
+NB : j'ai constaté une irrégularité dans mon code, j'y reviendrai plus tard après les tests.
+En fait si ma chaine ne comporte pas à l'indice 0 le motif demandé, il ne détecte plus l'occurence du motif plus loin dans la chaine. Mais si au début on a le motif, le programme va detecter toutes les occurrences. Pas encore compris pourquoi, probablement dans l'algo KR le fait que je teste une fois avant de commencer la boucle, mais bon d'abord je suis passée aux tests.
+
+Soient n la taille du texte, et m la taille du motif.
+Le coût au pire cas de l'algorithme implémenté dans la fonction Recherche :
+Je ne considère que les comparaisons entre les caractères du motif et du texte, pour prendre en compte les comparaisons tels que j == m, il faut juste ajouter les constantes correspondantes Donc je compte le nombre de comparaisons maximal dans la boucle interne et c'est égal à m. Et le nombre d'itérations de la boucle externe est égal à (n-m+1).
+D'où, cout au pire cas : O((n-m+1)*m)=O(n.m)
+Ce pire cas correspond à un texte qui comporte une répétition des (m-1) premiers caractères du motif et soit sans contenir le motif complet soit un motif qui se trouve à la fin du texte.
+Et en plus de cela le motif ne comporte qu'un seul caractère et que le texte également, par exemple :
+
+Le temps d'exécution croit en fonction des tailles du texte et du motif si on se trouve à chaque fois dans le pire cas.
+
+Ci-dessous le tableau récapitulatif des test effectués, temps d'exécution selon les algorithmes et selon la taille de la chaine.
+Je n'ai pas eu le temps pour effectuer les tests pour voir si la longueur du motif influe également.
+
+Conclusion : l'algo naif peut être efficace avec une taille de chaine inférieure à 200 à peu près, au- delà de cette taille, l'efficacité en temps de l'algo Karp Rabin est évidente.
+Sur la dernière valeur testée, le décalage est énorme.
+
+Introduction :
+Durant cette apnée, nous avons effectuer : Dans un premier temps :
+- Test d'un algorithme et de ses performances - Etablissement du pire des cas
+- Recherche du cas défavorable correspondant - Observé le temps nécéssaire d'execution
+Dans un second temps :
+- Comprendre un principe (KR)
+- Coder l'algorithme correspondant - Choisir une valeur de hachage
+- Observer les résultats
+- Comparer avec les résultats de la partie 1.
+Exercice 2 :
+Le coût dans le pire des cas est O(nm-m2+m)
+Exemple : Motif composé uniquement de mêmes lettres, texte comportant uniquement les
+mêmes lettres.
+Le pire des cas sera :
+- Un motif de (n/2)+1 si n impair
+- Un motif de n/2 ou (n/2)+1 si n pair texte : 
+Or notre algo fait bien 9 comparaisons.
+Or notre algo fait bien 20 comparaisons.
+Nous atteignons bien la majoration estimée, nous pouvons majorer au dessus en ne prenant que O(mn), que nous n'atteindrons jamais.
+Le temps obtenu.
+On peut dire que ça augmente exponentiellement,
+On peut conclure de ce graphe que la recherche KR est quasiment instantanée par rapport a la recherche proposée à la base dans ce fichier.
+Si nous observons les résultats de la recherche KR, on observe que le temps est a peu prés constant, on peut en conclure qu'il est en O(1).
+
+Introduction.
+Au cours de cette APNEE, nous avons commencé par étudier le code fourni afin de comprendre le fonctionnement de l'algorithme initial. Nous avons ensuite effectué divers test afin de voir comment celui-ci se comportait. Nous avons enfin créé des tests visant à faire atteindre à l'algorithme son coût maximum.
+Dans un second temps, nous avons implémenté l'algorithme de Karp-Rabin, avant de comparer les temps d'execution des deux algorithmes pour des mêmes jeux de tests.
+Exercice 2 – Analyse en pire cas
+Dans le pire cas, l'algorithme de recherche à un coût égal à (n-m)*m, avec n la longueur du texte et m la longueur du motif. Cela occure lorsque le texte est la répétition d'une unique lettre, et que le motif est également une répétition de cette même lettre.
+Pour un motif de 104.000 caractères et un texte de 144.000 caractères, le temps d'execution est de 8,124 secondes.
+Pour un motif de 4.000 caractères et un texte de 14.000 caractères, le temps d'execution est de 0,654 secondes.
+Pour un motif de 90 caractères et un texte de 10 caractères, le temps d'execution est de 0,004 secondes.
+
+Note : Deux tests ont été omis sur ce graphique, pour 3.000.000 et 6.000.000 de caractères respectivement. Pour ceux-ci, l'algorithme de Karb-Rabin prend quelques centièmes de secondes, tandis que l'algorithme naïf prend respectivement 200 et 800 secondes, ce qui est trop élevé pour être représenté sur le graphique.
+On peut conclure de ce graphique que l'algorithme de Karp-Rabin permet d'être beaucoup plus efficace lorsque l'on travaille sur un nombre élevé de caractères. En effet, l'algorithme naïf commence à se faire plus long à partir de quelques centaines de milliers de caractères, et commence rapidement à prendre plusieurs secondes pour traiter ceux-ci là où l'algorithme de Karp-Rabin ne prend que quelque centièmes, voire millièmes de secondes.
+On note cependant que si l'algorithme de Karp-Rabin permet d'être plus efficace que l'algorithme naïf pour un grand nombre de caractères, il reste relativement peu efficace lorsque l'on se trouve dans le pire cas évoqué à l'exercice 2. Par exemple, pour un motif de 104.000 caractères et un texte de 144.000 caractères, le temps d'execution est de 3,328 secondes.
+
+Introduction.
+L’objectif de cette apnée est de vérifier la performance de l’algorithme de Karp-Rabin en comparaison d’un algorithme naïf de recherche de motif dans un texte. Pour cela, nous implémenterons ces algorithmes en utilisant le langage Java. Nous comparerons le temps d’exécution de chaque algorithme sur diverses chaînes données.
+
+Analyse en pire cas.
+Le pire des cas possible a lieu lorsque l’on parcourt tout le texte ainsi que tout le motif. C’est à dire, lorsque le motif sans sa dernière lettre se répète dans le texte. Par exemple, nous avons le texte suivant : "aabaabaabaabaabaab", et le motif suivant : "aac" ou "aab". Le fait que le motif appartienne ou non au texte n’a pas d’importance, la complexité sera inchangée.
+En posant N = la taille du texte - la taille du motif, et M = la taille du motif, la complexité de l’algorithme naïf est de (n-m)*m. La complexité est donc de l’ordre O(n*m).
+
+
+Résultats.
+
+En théorie, l’algorithme de Karp-Rabin est plus rapide que l’algorithme naïf. Les résultats ne valident donc pas cette théorie. Cependant, l’implémentation de l’algorithme de Karp-Rabin utilise les deux fonctions hashcode qui augmente le temps d’exécution de manière significative sur des textes de grandes tailles.
+En conclusion, la mauvaise implémentation de l’algorithme fausse les résultats.
+
+Dans cette apnée on implémente le table de hachage dans une fonction de jointure. On compare son temps d'execution avec le temps d'execution d'une version naïf afin de déduire son complexité.
+
+Introduction :
+Nous avons implémenté l'algorithme HashJoin qui réalise la jointure de deux tables grâce à une table de hachage. Nous avons comparé les résultats obtenus avec ceux de la version naïve.
+
+Le coût de l'algorithme est de l'ordre de n*m en nombre de comparaison.
+
+Les temps d'exécution du programme sont nettement inférieurs avec la version HashJoin.
+En doublant la taille des données, le temps d'exécution double avec la version naïve, alors que la progression est plus faible pour la version HashJoin.
+L'algorithme HashJoin permet de traiter des données plus grandes dans un temps acceptable.
+
+Le but de cette APNEE est de comparer deux algorithmes permettant de réaliser une jointure de deux tables. L'un des algorithmes est dit naïf, tandis que l'autre utilise une table de hachage. Nous allons évaluer le coût de l'algorithme naïf, puis implémenter l'algorithme utilisant une table de hachage et aussi évaluer son coût, afin de déterminer lequel est le plus efficace. Par la suite, nous ferons la même chose pour réaliser une projection sans doublon et une soustraction.
+
+Soit N1 le nombre de n-uplets de t1 et N2 le nombre de n-uplets de t2. Le coût de cet algorithme est C = N1*N2.
+
+On constate facilement une différence majeure en terme de temps d'exécution. Celui de l'algorithme naïf augmente de façon exponentielle, alors que le temps d'exécution de HashJoin augmente de façon linéaire. L'augmentation est tellement faible par rapport à celle de l'algorithme naïf que sur le graphique, on a l'impression que le temps d'exécution de HashJoin est constant.
+
+
+On fait le même constat que pour la jointure, l'algorithme utilisant une table de hachage est beaucoup plus performant.
+
+Intro.
+Apnee ALGO6.
+Nous avons réalisé des algos de gestion de BD: -Join avec hachage
+-Projection naif et avec hachage
+-Soustraction naif et avec hachage
+Le soustraction naif ne fonctionne pas correctement, mais nous manquons de temps pour le debugger. Le version hachage marche.
+
+On peut voir très nettement le difference de temps d'execution entre le naif et le hachage. Nous avons pas fais des essais pour des naif plus grand que 10000 car le temps était déjà excessif.
+
+Durant l'apnéee, tout les exercice ont été codé et testé .
+Faute de temps, les valeurs des test n'ont pas pu se faire et le graphique de l'exercice 3 n'as pas été fait non plus.
+
+Complexité pour n1 n-uplets pour f1 et n2 n-uplets pour f2 : n1*n2
+
+On constate que l'algorithme utilisant la table de hachage est beaucoup (beaucoup) plus performant que l'algorithme naïf. Les deux algorithmes ont un temps qui augmente de façon exponentielle, mais pas avec le même facteur.
+
+On constate que pour la projection sans doublons, pour un petit nombre de n-uplets les temps entre les deux algorithmes sont très proches avant de s'éloigner de façon exponentielle. De plus, l'algorithme naïf prend au maximum 3500 ms alors que sur le graphique précédent il atteignait presque les 10 secondes.
+
+Le temps de calcul des deux algorithmes en fonction du nombre de n-uplets est assez similaire à celui de l'exercice 4. Cependant, l'intervalle de temps de l'algorithme naïf est plus restreint : [2000 ms, 9000 ms].
+NB
+Dans nos tests, nous avons privilégié un nombre de n-uplets ''relativement petit'' afin de ne pas attendre trop longtemps les résultats.
+
+Introduction :
+Dans cette Apnee, nous avons pu :
+- Comprendre un algorithme
+- Comprendre comment l'améliorer
+- Se servir de fonctions Java déjà existantes
+- Evaluer les performances
+- Les comparer
+
+
+La jointure par hachage reste négligeable quelle que soit la taille des données par rapport à la jointure naïve.
+Ici, on observe une courbe en C * n = O(n).
+C constante car nous ne faisons varier que n1 dans la complexité : O(Join(f1,f2,res) = n1 * n2.
+
+Les fichiers sont créés mais ont quelques erreurs, je n'ai plus le temps pour les débuguer et tester. Les algorithmes sont compréhensibles.
+
+Le but de cette apnée était de nous entraîner à utiliser des tables de hachage. Ainsi, elle met en concurrence des algorithmes naïfs et des algorithmes utilisant des tables de hachage. De plus, il nous était fourni du code que l'on a du comprendre pour pouvoir ensuite calculer son coût d'exécution afin de pouvoir coder un algorithme mettant en place des tables de hachage permettant de réduire considérablement le coût de calcul. Nous avons pu aller jusqu'à la projection avec les deux versions : naïve et avec une table de hachage.
+
+Coût de l'algorithme en nombre de comparaisons :
+C(n) = nbLignes(fichier1) * nbLignes(fichier2) * 1
+A chaque tour de boucle, on teste une fois le premier élément du fichier1 avec le deuxième du fichier2 et ce pour chaque ligne du fichier 2 et pour toutes les lignes du fichier1.
+
+
+Sur le diagramme ci-dessus, on distingue largement la version naïve de la version avec table de hachage. En effet, la version naïve voit son temps d'execution grandir de manière exponentielle tandis que la version avec une table de hachage reste « constante » avec un temps d'execution quasi nul. Ainsi, la version avec une hashTable est efficace et bien plus performante que la version naïve.
+
+Nous voyons que la version utilisant une table de hachage est plus performante que la version naïve, qui voit son temps d'execution constant par rapport au temps d'execution de la version naïve, qui quand à elle à une croissance exponentielle.
+
+Introduction.
+En premier lieu, nous avons testé l'algorithme naïf à l'aide des fichiers de tests fournis, avant d'utiliser des fichiers de tests que nous avions réalisé nous-même, afin de bien comprendre la structure des fichiers et la façon dont l'algorithme procédait. Nous en avons déduit le fonctionnement de l'algorithme, ainsi que son coût.
+Puis, nous avons implémenté l'algorithme de HashJoin et comparé ses performances à celles de l'algorithme naïf au moyen de fichiers de tests de différentes longueurs. Nous avons ainsi pu évaluer l'efficacité de l'algorithme de HashJoin par rapport à l'original.
+Nous avons ensuite implémenté deux fonctions permettant d'effectuer l'opération de projection : une première version « naïve » utilisant deux boucles imbriquées, et une seconde utilisant une table de hachage. Nous avons également fait de même pour l'opération de soustraction. Puis, après avoir testé leur bon fonctionnement, nous avons comparé l'efficacité des deux algorithme de projection, puis de soustraction.
+
+L'algorithme naïf peut être résumé sous la forme suivante :
+Le coût de celui-ci est égal au produit du nombre de lignes de T1 par le nombre de lignes de T2.
+
+Ce graphique montre que l'algorithme HashJoin est beaucoup plus efficace que l'algorithme naïf sur des fichiers avec un grand nombre de lignes : le temps d'execution de ce dernier est de l'ordre des minutes passé la dizaine de milliers de lignes, tandis qu'il reste de quelques centaines de millisecondes pour l'algorithme HashJoin.
+
+Ce graphique permet d'observer que l'algorithme naïf de projection est encore plus coûteux que celui de la question précédente, car son coût augmente de manière carrée plutôt que linéaire. À l'inverse, les résultats de l'algorithme de HashJoin sont inférieurs à ceux obtenus à l'algorithme
+Temps (ms) Temps (ms)
+précédent. La comparaison joue donc encore plus en la faveur de l'algorithme de hachage dans le cas d'une projection.
+
+L'algorithme de soustraction quant à lui présente des résultats similaires au premier graphique pour l'algorithme naïf et au second pour l'algorithme HashJoin. La table de hachage est donc de toute évidence une méthode très efficace pour effectuer des opérations sur des bases de données, beaucoup plus performante qu'un algorithme naïf parcourant l'ensemble des données.
+
+Introduction.
+L’objectif de cette apnée est de comparer les performances de différents algorithmes selon deux versions : l’une utilisation des boucles imbriquées, l’autre utilisant une table de hachage. Le rôle des algorithmes utilisés est de réaliser la jointure naturelle de deux relations. Nous comparerons alors les temps d’exécution de ces deux algorithmes.
+
+L’algorithme naïf donnant la jointure naturelle entre deux tables est le suivant :
+
+La complexité de cet algorithme est tout le temps la même. Les deux relations étant parcourues intégralement, et les boucles étant imbriquées, la complexité est O(n*m), où n est le nombre de n-uplets de la relation 1, et m le nombre de n-uplets de la relation 2.
+
+
+Nous remarquons que l’utilisation d’une table de hachage réduit considérablement le temps de calcul, contrairement à l’utilisation de boucles imbriquées.
+
+Le temps d’exécution est quasi constant avec une table de hachage.
+
+
+Nous remarquons que l’utilisation de la table de hachage réduit en moyenne le temps d’exécution d’environ 50%.
+
+Comparaison des temps d’exécution de la soustraction en fonction du nombre de n-uplet (exercice 5)
+
+Ici encore la table de hachage réduit le temps d’exécution de manière considérable. Le temps d’exécution est quasi constant.
