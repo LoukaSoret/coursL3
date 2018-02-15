@@ -3,7 +3,7 @@ coursL3 - Licence 3 informatique
 
 ## Actuellement en stock
 
-<img src="https://github.com/LoukaSoret/coursL3/blob/master/drug-dealer-15595221.jpg" alt="Das some good shiet" style="width: 200px;"/>
+<img src="https://github.com/LoukaSoret/coursL3/blob/master/drug-dealer-15595221.jpg" alt="Das some good shiet" style="width: 100px;"/>
 
 ### ALGO6
 #### APNEEs et TPs
