@@ -5,8 +5,8 @@ coursL3 - Licence 3 informatique
 
 ### ALGO6
 #### APNEEs et TPs
--APNEE2 **[INCOMPLETE]**
--APNEE3 [COMPLETE]
+- APNEE2 **[INCOMPLETE]**
+- APNEE3 [COMPLETE]
 #### Cours et TDs
 - Cours et TDs du **15/01/18 au 07/02/18** [MANUSCRIT]
 
@@ -39,4 +39,4 @@ coursL3 - Licence 3 informatique
 - Cours et TDs du **15/01/18 au 06/02/18** [MANUSCRIT]
 
 ### RO
-Lien vers Caseine UGA
+Lien vers [Caseine UGA](http://caseine.org/course/view.php?id=42)
