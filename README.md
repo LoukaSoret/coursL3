@@ -23,9 +23,9 @@ coursL3 - Licence 3 informatique
 
 ### SR
 #### APNEEs et TPs
-- TP1 **[IMCOMPLET]**
-- TP2 **[IMCOMPLET]**
-- TP3 [COMPLET]
+- TP1 **[INCOMPLET]**
+- TP2 **[INCOMPLET]**
+- TP3 **[INCOMPLET]**
 - APNEE1 [COMPLETE]
 #### Cours et TDs
 - TD1, TD2 et TD3 + correction [MANUSCRIT]
