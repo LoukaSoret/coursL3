@@ -1,0 +1,5 @@
+#
+# test07.txt - Tester la redirection IO simple
+#
+ls > tests/log.out
+wc -l < tests/log.out

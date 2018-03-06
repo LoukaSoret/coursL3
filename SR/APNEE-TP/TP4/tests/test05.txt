@@ -1,0 +1,4 @@
+#
+# test05.txt - Tester le pipe simple
+#
+ls | wc

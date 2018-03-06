@@ -42,7 +42,7 @@ int main()
 		struct cmdline *l;
 		int i, j;
 
-		printf("shell> ");
+		printf("whatcha'need?> ");
 		l = readcmd();
 
 		/* If input stream closed, normal termination */
@@ -71,13 +71,15 @@ int main()
 		}
 
 		if(l->seq[0]){
+			/* Quit cmd implementation */
 			if (!strcmp(l->seq[0][0],"quit") || !strcmp(l->seq[0][0],"q")){
 				exit(0);
 			}
 			else{
 				
+				/* To many pipes */
 				if(len(l->seq)==-1){
-						fprintf(stderr, "error: Oh boy that's a lot of pipes you have right there.\n");
+						fprintf(stderr, "error: Oh boy that's a lot of pipes you have right there, you might wanna calm down.\n");
 						exit(2);
 				}
 
@@ -93,11 +95,13 @@ int main()
 				for (i = 0; i < len(l->seq); i++){
 					pid = fork();
 					if (!pid){ // Child
-						if (i != len(l->seq)){ // right pipe pluging
+						if (i != len(l->seq)-1){ // right pipe pluging
 							dup2(pipes[i][INPUT], STDOUT_FILENO);
-						} else if (l->out){ // output redirection case when i=len(l->seq)-1
-							out=open(l->out,O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IWOTH | S_IXOTH);
-							if(in == -1){
+						} else if (l->out){ // output redirection case when i==len(l->seq)-1
+							printf("SLT\n");
+							out=open(l->out,O_RDWR | O_CREAT | O_TRUNC);
+							fchmod(out, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IWOTH | S_IXOTH);
+							if(out == -1){
 								fprintf(stderr, "error: Can't open output redirection file %s\n", l->out);
 								exit(2);
 							}
@@ -106,22 +110,22 @@ int main()
 						if (i){ // left pipe pluging
 							dup2(pipes[i-1][OUTPUT], STDIN_FILENO);
 						} else if (l->in){ // input redirection case when i=0
-							in=open(l->in,O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IWOTH | S_IXOTH);
+							in=open(l->in,O_RDONLY);
 							if(in == -1){
-								fprintf(stderr, "error: Can't open input redirection file %s\n", l->out);
+								fprintf(stderr, "error: Can't open input redirection file %s\n", l->in);
 								exit(2);
 							}
 							dup2(in, STDIN_FILENO);
 						}
 						/* Closing all pipes */
 						for (j = 0; j < len(l->seq); j++) {
-							close(pipes[j][0]);
-							close(pipes[j][1]);
+							close(pipes[j][OUTPUT]);
+							close(pipes[j][INPUT]);
 						}
 						execvp(l->seq[i][0], l->seq[i]);
 						exit(errno);
 					} else { //father
-						close(pipes[i][1]);
+						close(pipes[i][INPUT]);
 						if(!l->job){ // forground or background test
 							for (j = 0; j < len(l->seq); j++){ // waiting all sons to come back
 								waitpid(-1, &status , 0);

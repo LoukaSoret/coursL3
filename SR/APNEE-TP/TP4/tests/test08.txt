@@ -1,0 +1,8 @@
+#
+# test08.txt - Tester la gestion d'erreurs
+#
+lf
+wc -k
+man commentAvoir20AuTP4DeSR
+ls *
+ls /root

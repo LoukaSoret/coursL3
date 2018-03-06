@@ -1,0 +1,4 @@
+#
+# test09.txt - Tester la redirection IO en entree/sortie de pipe
+#
+ls | wc | wc -l > tests/log.out

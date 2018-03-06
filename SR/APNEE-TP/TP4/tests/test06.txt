@@ -1,0 +1,4 @@
+#
+# test06.txt - Tester le pipe multiple
+#
+ls | wc | wc -l
